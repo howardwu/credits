@@ -16,6 +16,7 @@ mod test_bond_public;
 mod test_claim_unbond_public;
 mod test_set_validator_state;
 mod test_transfer_public;
+mod test_transfer_public_to_private;
 mod test_unbond_delegator_as_validator;
 mod test_unbond_public;
 

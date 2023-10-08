@@ -102,6 +102,25 @@ use anyhow::Result;
 
 fn main() -> Result<()> {
     let rng = &mut rand::thread_rng();
+
+    let transaction = Credits::transfer_public(
+        "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Sender's Private Key
+        "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Recipient's Address
+        10_000_000, // Amount (in microcredits)
+        10_000, // Fee (in microcredits)
+        false, // Broadcast
+        rng,
+    )?.execute()?;
+}
+```
+
+#### `transfer_public_to_private`
+```rust
+use credits::Credits;
+use anyhow::Result;
+
+fn main() -> Result<()> {
+    let rng = &mut rand::thread_rng();
     
     let transaction = Credits::transfer_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Sender's Private Key

@@ -165,6 +165,31 @@ impl Credits {
         // Construct the authorization.
         Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
     }
+
+    /// Returns a transaction that transfers public to private credits from the sender to the recipient.
+    pub fn transfer_public_to_private(
+        private_key: &str,
+        recipient: &str,
+        amount_in_microcredits: u64,
+        fee_in_microcredits: u64,
+        broadcast: bool,
+        rng: &mut (impl Rng + CryptoRng),
+    ) -> Result<Authorized<N>> {
+        // Initialize the private key.
+        let private_key = PrivateKey::<N>::from_str(private_key)?;
+        // Initialize the recipient.
+        let recipient = Address::<N>::from_str(recipient)?;
+        // Initialize the amount in microcredits.
+        let amount_in_microcredits = U64::<N>::new(amount_in_microcredits);
+
+        // Construct the program ID and function name.
+        let (program_id, function_name) = ("credits.aleo", "transfer_public_to_private");
+        // Construct the inputs.
+        let inputs =
+            vec![Value::<N>::from(Literal::Address(recipient)), Value::from(Literal::U64(amount_in_microcredits))];
+        // Construct the authorization.
+        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+    }
 }
 
 impl Credits {
