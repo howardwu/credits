@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+mod test_bond_public;
+mod test_claim_unbond_public;
+mod test_set_validator_state;
 mod test_transfer_public;
+mod test_unbond_delegator_as_validator;
+mod test_unbond_public;
 
 use snarkvm::{
     console::account::{Address, PrivateKey},

@@ -4,7 +4,7 @@
 [![Authors](https://img.shields.io/badge/authors-Aleo-orange.svg)](https://aleo.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE.md)
 
-## Example
+## Examples
 
 #### `bond_public`
 ```rust
@@ -17,7 +17,7 @@ fn main() -> Result<()> {
     let transaction = Credits::bond_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Staker's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Validator's Address
-        1_000_000, // Amount (in microcredits)
+        10_000_000, // Amount (in microcredits)
         10_000, // Fee (in microcredits)
         false, // Broadcast
         rng,
@@ -35,7 +35,7 @@ fn main() -> Result<()> {
 
     let transaction = Credits::unbond_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Staker's Private Key
-        1_000_000, // Amount (in microcredits)
+        10_000_000, // Amount (in microcredits)
         10_000, // Fee (in microcredits)
         false, // Broadcast
         rng,
@@ -106,7 +106,7 @@ fn main() -> Result<()> {
     let transaction = Credits::transfer_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Sender's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Recipient's Address
-        1_000_000, // Amount (in microcredits)
+        10_000_000, // Amount (in microcredits)
         10_000, // Fee (in microcredits)
         false, // Broadcast
         rng,
