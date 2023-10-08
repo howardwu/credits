@@ -168,7 +168,9 @@ fn main() -> Result<()> {
 
 ## Testing
 
-This crate provides a comprehensive set of tests for every function in the credits program. Use the following to run tests:
+This crate provides a comprehensive set of tests for every function in the credits program.
+
+Use the following to run tests:
 
 ```bash
 cargo test
