@@ -1,6 +1,6 @@
 # Credits SDK
 
-<!-- [![Crates.io](https://img.shields.io/crates/v/credits.svg?color=neon)](https://crates.io/crates/credits) -->
+[![Crates.io](https://img.shields.io/crates/v/credits.svg?color=neon)](https://crates.io/crates/credits)
 [![Authors](https://img.shields.io/badge/authors-Aleo-orange.svg)](https://aleo.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE.md)
 
