@@ -4,6 +4,15 @@
 [![Authors](https://img.shields.io/badge/authors-Aleo-orange.svg)](https://aleo.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE.md)
 
+## Notice
+
+This repository is under active development and is subject to change.
+
+Notably, this repository does not yet support the following:
+- [ ] Private transfers
+- [ ] Private join/splits
+- [ ] **Checking the fee is sufficient for a transaction before executing it**
+
 ## Examples
 
 #### `bond_public`
