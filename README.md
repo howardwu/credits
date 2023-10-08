@@ -18,7 +18,7 @@ First, add `credits` to your `Cargo.toml` dependencies:
 
 ```toml
 [dependencies]
-credits = "0.1.0"
+credits = "0.1.1"
 ```
 
 Then, incorporate it in your Rust code:
