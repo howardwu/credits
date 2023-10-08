@@ -21,8 +21,6 @@ edition = "2021"
 
 [dependencies.snarkvm]
 #path = "../snarkVM"
-#git = "https://github.com/AleoHQ/snarkVM.git"
-#rev = "18509ab"
 version = "=0.15.2"
 
 [dependencies.anyhow]

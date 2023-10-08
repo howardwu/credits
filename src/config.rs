@@ -1,4 +1,4 @@
-// Copyright (C) 2019-2023 Aleo Systems Inc.
+// Copyright (C) 2019-2023 Howard Wu
 // This file is part of the credits library.
 
 // Licensed under the Apache License, Version 2.0 (the "License");
