@@ -4,6 +4,30 @@
 [![Authors](https://img.shields.io/badge/authors-Aleo-orange.svg)](https://aleo.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE.md)
 
+The `credits` crate provides an interface for managing and handling operations related to credit transactions on the Aleo network. With this crate, you can effortlessly generate, authorize, and execute credit-related transactions like transferring credits, bonding, unbonding, and more.
+
+## Features
+
+- **Simple Transactions**: Easily transfer credits between two accounts.
+- **Staking & Validators**: Bond or unbond microcredits to validators, control validator states, and manage unbonded credits.
+- **Local & Remote Execution**: Execute transactions both locally and remotely, giving developers flexibility in testing and deployment.
+
+## Usage
+
+First, add `credits` to your `Cargo.toml` dependencies:
+
+```toml
+[dependencies]
+credits = "0.1.0"
+```
+
+Then, incorporate it in your Rust code:
+
+```rust
+use credits::Credits;
+```
+
+
 ## Notice
 
 This repository is under active development and is subject to change.
@@ -141,3 +165,15 @@ fn main() -> Result<()> {
     )?.execute()?;
 }
 ```
+
+## Testing
+
+This crate provides a comprehensive set of tests for every function in the credits program. Use the following to run tests:
+
+```bash
+cargo test
+```
+
+## Contributing
+
+Pull requests are welcome. For significant changes, please open an issue first to discuss the intended change.
