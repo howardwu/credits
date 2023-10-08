@@ -135,7 +135,7 @@ jobs:
   credits:
     docker:
       - image: cimg/rust:1.68
-    resource_class: 2xlarge
+    resource_class: medium
     steps:
       - run_serial:
           workspace_member: .
@@ -144,7 +144,7 @@ jobs:
   check-fmt:
     docker:
       - image: cimg/rust:1.68
-    resource_class: xlarge
+    resource_class: medium
     steps:
       - checkout
       - install_rust_nightly
@@ -160,7 +160,7 @@ jobs:
   check-clippy:
     docker:
       - image: cimg/rust:1.68
-    resource_class: xlarge
+    resource_class: medium
     steps:
       - checkout
       - setup_environment:
@@ -177,7 +177,7 @@ jobs:
   check-all-targets:
     docker:
       - image: cimg/rust:1.68
-    resource_class: xlarge
+    resource_class: medium
     steps:
       - checkout
       - setup_environment:
@@ -192,7 +192,7 @@ jobs:
   verify-windows:
     executor:
       name: windows/default
-      size: 2xlarge
+      size: medium
     environment:
       CARGO_NET_GIT_FETCH_WITH_CLI: "true"
     parameters:
