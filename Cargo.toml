@@ -1,6 +1,6 @@
 [package]
 name = "credits"
-version = "0.1.1"
+version = "0.1.2"
 authors = [ "Howard Wu" ]
 description = "An SDK for interfacing with the credits program"
 repository = "https://github.com/howardwu/credits"
