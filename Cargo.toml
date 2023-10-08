@@ -1,0 +1,82 @@
+[package]
+name = "credits"
+version = "0.1.0"
+authors = [ "The Aleo Team <hello@aleo.org>" ]
+description = "An SDK for interfacing with the credits program"
+homepage = "https://aleo.org"
+repository = "https://github.com/AleoHQ/credits"
+keywords = [
+    "aleo",
+    "cryptography",
+    "blockchain",
+    "decentralized",
+    "zero-knowledge"
+]
+categories = [
+    "cryptography",
+    "mathematics",
+    "web-programming"
+]
+include = [ "Cargo.toml", "src", "README.md", "LICENSE.md" ]
+license = "Apache-2.0"
+edition = "2021"
+
+[dependencies.snarkvm]
+#path = "../snarkVM"
+#git = "https://github.com/AleoHQ/snarkVM.git"
+#rev = "18509ab"
+version = "=0.15.2"
+
+[dependencies.anyhow]
+version = "1.0.72"
+
+[dependencies.lazy_static]
+version = "1.4"
+
+[dependencies.rand]
+version = "0.8"
+
+[dependencies.reqwest]
+version = "0.11"
+features = [ "json" ]
+
+[dependencies.serde]
+version = "1.0.180"
+
+[dependencies.serde_json]
+version = "1.0"
+features = [ "preserve_order" ]
+
+#[dev-dependencies.criterion]
+#version = "0.5.1"
+
+[dev-dependencies.rusty-hook]
+version = "0.11.2"
+
+[build-dependencies.walkdir]
+version = "2"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+incremental = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+rpath = false
+lto = "thin"
+incremental = true
+debug-assertions = false
+
+[profile.dev]
+opt-level = 3
+lto = "thin"
+incremental = true
+
+[profile.test]
+opt-level = 3
+lto = "thin"
+incremental = true
+debug = true
+debug-assertions = true
