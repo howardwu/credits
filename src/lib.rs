@@ -179,15 +179,13 @@ impl Credits {
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
         // Authorize the main function.
-        let function = PROCESS.authorize::<A, _>(&private_key, program_id, function_name, inputs.into_iter(), rng)?;
+        let function = PROCESS.authorize::<A, _>(private_key, program_id, function_name, inputs.into_iter(), rng)?;
         // Retrieve the execution ID.
         let execution_id = function.to_execution_id()?;
         // Authorize the fee.
         let fee = match fee_in_microcredits == 0 {
             true => None,
-            false => {
-                Some(PROCESS.authorize_fee_public::<A, _>(&private_key, fee_in_microcredits, execution_id, rng)?)
-            }
+            false => Some(PROCESS.authorize_fee_public::<A, _>(private_key, fee_in_microcredits, execution_id, rng)?),
         };
         // Construct the authorization.
         Ok(Authorized::<N>::new(function, fee, broadcast))
