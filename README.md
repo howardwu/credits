@@ -9,7 +9,6 @@ The `credits` crate provides an interface for managing and handling operations r
 
 - **Simple Transactions**: Easily transfer credits between two accounts.
 - **Staking & Validators**: Bond or unbond microcredits to validators, control validator states, and manage unbonded credits.
-- **Local & Remote Execution**: Execute transactions both locally and remotely, giving developers flexibility in testing and deployment.
 
 ## Usage
 
