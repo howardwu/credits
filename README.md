@@ -1,7 +1,6 @@
 # Credits SDK
 
 [![Crates.io](https://img.shields.io/crates/v/credits.svg?color=neon)](https://crates.io/crates/credits)
-[![Authors](https://img.shields.io/badge/authors-Aleo-orange.svg)](https://aleo.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE.md)
 
 The `credits` crate provides an interface for managing and handling operations related to credit transactions on the Aleo network. With this crate, you can effortlessly generate, authorize, and execute credit-related transactions like transferring credits, bonding, unbonding, and more.
