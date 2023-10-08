@@ -3,8 +3,7 @@ name = "credits"
 version = "0.1.1"
 authors = [ "Howard Wu" ]
 description = "An SDK for interfacing with the credits program"
-homepage = "https://aleo.org"
-repository = "https://github.com/AleoHQ/credits"
+repository = "https://github.com/howardwu/credits"
 keywords = [
     "aleo",
     "cryptography",
