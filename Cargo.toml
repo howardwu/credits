@@ -5,7 +5,6 @@ authors = [ "Howard Wu" ]
 description = "An SDK for interfacing with the credits program"
 repository = "https://github.com/howardwu/credits"
 keywords = [
-    "aleo",
     "cryptography",
     "blockchain",
     "decentralized",
