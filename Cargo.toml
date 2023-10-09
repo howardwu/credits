@@ -20,7 +20,7 @@ edition = "2021"
 
 [dependencies.snarkvm]
 #path = "../snarkVM"
-version = "=0.15.2"
+version = "=0.15.3"
 
 [dependencies.anyhow]
 version = "1.0.72"
