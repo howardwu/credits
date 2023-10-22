@@ -42,7 +42,7 @@ impl Credits {
         private_key: &str,
         validator: &str,
         amount_in_microcredits: u64,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -58,15 +58,16 @@ impl Credits {
         // Construct the inputs.
         let inputs =
             vec![Value::<N>::from(Literal::Address(validator)), Value::from(Literal::U64(amount_in_microcredits))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that any staker to unbond their microcredits from a validator.
     pub fn unbond_public(
         private_key: &str,
         amount_in_microcredits: u64,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -79,15 +80,16 @@ impl Credits {
         let (program_id, function_name) = ("credits.aleo", "unbond_public");
         // Construct the inputs.
         let inputs = vec![Value::from(Literal::U64(amount_in_microcredits))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that allows a validator to unbond any delegator that is bonded to them.
     pub fn unbond_delegator_as_validator(
         private_key: &str,
         delegator: &str,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -100,14 +102,15 @@ impl Credits {
         let (program_id, function_name) = ("credits.aleo", "unbond_delegator_as_validator");
         // Construct the inputs.
         let inputs = vec![Value::<N>::from(Literal::Address(delegator))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that allows any staker to claim their microcredits after the unbonding period.
     pub fn claim_unbond_public(
         private_key: &str,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -116,15 +119,16 @@ impl Credits {
 
         // Construct the program ID and function name.
         let (program_id, function_name) = ("credits.aleo", "claim_unbond_public");
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, vec![], fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, vec![], priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that allows a validator to set their state to be either opened or closed to stakers.
     pub fn set_validator_state(
         private_key: &str,
         is_open: bool,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -137,8 +141,9 @@ impl Credits {
         let (program_id, function_name) = ("credits.aleo", "set_validator_state");
         // Construct the inputs.
         let inputs = vec![Value::<N>::from(Literal::Boolean(is_open))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that transfers public credits from the sender to the recipient.
@@ -146,7 +151,7 @@ impl Credits {
         private_key: &str,
         recipient: &str,
         amount_in_microcredits: u64,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -162,8 +167,9 @@ impl Credits {
         // Construct the inputs.
         let inputs =
             vec![Value::<N>::from(Literal::Address(recipient)), Value::from(Literal::U64(amount_in_microcredits))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 
     /// Returns a transaction that transfers public to private credits from the sender to the recipient.
@@ -171,7 +177,7 @@ impl Credits {
         private_key: &str,
         recipient: &str,
         amount_in_microcredits: u64,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -187,8 +193,9 @@ impl Credits {
         // Construct the inputs.
         let inputs =
             vec![Value::<N>::from(Literal::Address(recipient)), Value::from(Literal::U64(amount_in_microcredits))];
+
         // Construct the authorization.
-        Self::authorize(&private_key, program_id, function_name, inputs, fee_in_microcredits, broadcast, rng)
+        Self::authorize(&private_key, program_id, function_name, inputs, priority_fee_in_microcredits, broadcast, rng)
     }
 }
 
@@ -199,7 +206,7 @@ impl Credits {
         program_id: &str,
         function_name: &str,
         inputs: Vec<Value<N>>,
-        fee_in_microcredits: u64,
+        priority_fee_in_microcredits: u64,
         broadcast: bool,
         rng: &mut (impl Rng + CryptoRng),
     ) -> Result<Authorized<N>> {
@@ -207,10 +214,18 @@ impl Credits {
         let function = PROCESS.authorize::<A, _>(private_key, program_id, function_name, inputs.into_iter(), rng)?;
         // Retrieve the execution ID.
         let execution_id = function.to_execution_id()?;
+        // Determine the base fee in microcredits.
+        let base_fee_in_microcredits = get_base_fee_in_microcredits(program_id, function_name)?;
         // Authorize the fee.
-        let fee = match fee_in_microcredits == 0 {
+        let fee = match base_fee_in_microcredits == 0 && priority_fee_in_microcredits == 0 {
             true => None,
-            false => Some(PROCESS.authorize_fee_public::<A, _>(private_key, fee_in_microcredits, execution_id, rng)?),
+            false => Some(PROCESS.authorize_fee_public::<A, _>(
+                private_key,
+                base_fee_in_microcredits,
+                priority_fee_in_microcredits,
+                execution_id,
+                rng,
+            )?),
         };
         // Construct the authorization.
         Ok(Authorized::<N>::new(function, fee, broadcast))

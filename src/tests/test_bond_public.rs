@@ -18,22 +18,22 @@ use crate::{Authorized, Credits};
 use rand::Rng;
 
 /// Samples the authorization for `bond_public`.
-fn sample_bond_public(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
+pub(crate) fn sample_bond_public(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
     // Sample the sender.
     let (sender_private_key, _) = sample_account(rng);
     // Sample the validator.
     let (_, validator_address) = sample_account(rng);
     // Sample the amount in microcredits.
     let amount_in_microcredits = rng.gen_range(10000000..100000000);
-    // Sample the fee in microcredits.
-    let fee_in_microcredits = rng.gen_range(1..1000000);
+    // Sample the priority fee in microcredits.
+    let priority_fee_in_microcredits = rng.gen_range(1..1000000);
 
     // Sample the authorization.
     Credits::bond_public(
         &sender_private_key.to_string(),
         &validator_address.to_string(),
         amount_in_microcredits,
-        fee_in_microcredits,
+        priority_fee_in_microcredits,
         false,
         rng,
     )

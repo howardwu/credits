@@ -16,7 +16,7 @@ First, add `credits` to your `Cargo.toml` dependencies:
 
 ```toml
 [dependencies]
-credits = "0.1.2"
+credits = "0.1.3"
 ```
 
 Then, incorporate it in your Rust code:
@@ -49,7 +49,7 @@ fn main() -> Result<()> {
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Staker's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Validator's Address
         10_000_000, // Amount (in microcredits)
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -67,7 +67,7 @@ fn main() -> Result<()> {
     let transaction = Credits::unbond_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Staker's Private Key
         10_000_000, // Amount (in microcredits)
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -85,7 +85,7 @@ fn main() -> Result<()> {
     let transaction = Credits::unbond_delegator_as_validator(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Validator's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Delegator's Address
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -101,7 +101,7 @@ fn main() -> Result<()> {
 
     let transaction = Credits::claim_unbond_public(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Staker's Private Key
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -119,7 +119,7 @@ fn main() -> Result<()> {
     let transaction = Credits::set_validator_state(
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Validator's Private Key
         true, // is_open
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -138,7 +138,7 @@ fn main() -> Result<()> {
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Sender's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Recipient's Address
         10_000_000, // Amount (in microcredits)
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;
@@ -157,7 +157,7 @@ fn main() -> Result<()> {
         "APrivateKey1zkpBdGzC71T2A3D4bfyuPnz5NyJNLhSx3VQxWRMcha3JYtp", // Sender's Private Key
         "aleo1r8ak4sfzpljs65lu0cgu6x4pvvq6atsdx268auu7nf6wvsv5fgqq6v5p0a", // Recipient's Address
         10_000_000, // Amount (in microcredits)
-        10_000, // Fee (in microcredits)
+        10_000, // Priority Fee (in microcredits)
         false, // Broadcast
         rng,
     )?.execute()?;

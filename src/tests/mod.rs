@@ -13,12 +13,27 @@
 // limitations under the License.
 
 mod test_bond_public;
+use test_bond_public::*;
+
 mod test_claim_unbond_public;
+use test_claim_unbond_public::*;
+
+mod test_cost;
+
 mod test_set_validator_state;
+use test_set_validator_state::*;
+
 mod test_transfer_public;
+use test_transfer_public::*;
+
 mod test_transfer_public_to_private;
+use test_transfer_public_to_private::*;
+
 mod test_unbond_delegator_as_validator;
+use test_unbond_delegator_as_validator::*;
+
 mod test_unbond_public;
+use test_unbond_public::*;
 
 use snarkvm::{
     console::account::{Address, PrivateKey},

@@ -18,14 +18,14 @@ use crate::{Authorized, Credits};
 use rand::Rng;
 
 /// Samples the authorization for `claim_unbond_public`.
-fn sample_claim_unbond_public(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
+pub(crate) fn sample_claim_unbond_public(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
     // Sample the staker.
     let (staker_private_key, _) = sample_account(rng);
-    // Sample the fee in microcredits.
-    let fee_in_microcredits = rng.gen_range(1..1000000);
+    // Sample the priority fee in microcredits.
+    let priority_fee_in_microcredits = rng.gen_range(1..1000000);
 
     // Sample the authorization.
-    Credits::claim_unbond_public(&staker_private_key.to_string(), fee_in_microcredits, false, rng).unwrap()
+    Credits::claim_unbond_public(&staker_private_key.to_string(), priority_fee_in_microcredits, false, rng).unwrap()
 }
 
 #[test]

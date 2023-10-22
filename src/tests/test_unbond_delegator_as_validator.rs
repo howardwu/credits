@@ -18,19 +18,19 @@ use crate::{Authorized, Credits};
 use rand::Rng;
 
 /// Samples the authorization for `unbond_delegator_as_validator`.
-fn sample_unbond_delegator_as_validator(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
+pub(crate) fn sample_unbond_delegator_as_validator(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
     // Sample the validator.
     let (validator_private_key, _) = sample_account(rng);
     // Sample the delegator.
     let (_, delegator_address) = sample_account(rng);
-    // Sample the fee in microcredits.
-    let fee_in_microcredits = rng.gen_range(1..1000000);
+    // Sample the priority fee in microcredits.
+    let priority_fee_in_microcredits = rng.gen_range(1..1000000);
 
     // Sample the authorization.
     Credits::unbond_delegator_as_validator(
         &validator_private_key.to_string(),
         &delegator_address.to_string(),
-        fee_in_microcredits,
+        priority_fee_in_microcredits,
         false,
         rng,
     )

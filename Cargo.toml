@@ -1,6 +1,6 @@
 [package]
 name = "credits"
-version = "0.1.2"
+version = "0.1.3"
 authors = [ "Howard Wu" ]
 description = "An SDK for interfacing with the credits program"
 repository = "https://github.com/howardwu/credits"
@@ -20,7 +20,7 @@ edition = "2021"
 
 [dependencies.snarkvm]
 #path = "../snarkVM"
-version = "=0.15.3"
+version = "=0.16.2"
 
 [dependencies.anyhow]
 version = "1.0.72"

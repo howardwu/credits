@@ -18,16 +18,17 @@ use crate::{Authorized, Credits};
 use rand::Rng;
 
 /// Samples the authorization for `set_validator_state`.
-fn sample_set_validator_state(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
+pub(crate) fn sample_set_validator_state(rng: &mut TestRng) -> Authorized<CurrentNetwork> {
     // Sample the validator.
     let (validator_private_key, _) = sample_account(rng);
     // Sample the 'is_open' boolean flag.
     let is_open = rng.gen_bool(0.5);
-    // Sample the fee in microcredits.
-    let fee_in_microcredits = rng.gen_range(1..1000000);
+    // Sample the priority fee in microcredits.
+    let priority_fee_in_microcredits = rng.gen_range(1..1000000);
 
     // Sample the authorization.
-    Credits::set_validator_state(&validator_private_key.to_string(), is_open, fee_in_microcredits, false, rng).unwrap()
+    Credits::set_validator_state(&validator_private_key.to_string(), is_open, priority_fee_in_microcredits, false, rng)
+        .unwrap()
 }
 
 #[test]
