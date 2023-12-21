@@ -23,7 +23,7 @@ edition = "2021"
 version = "=0.16.2"
 
 [dependencies.anyhow]
-version = "1.0.72"
+version = "1.0.76"
 
 [dependencies.lazy_static]
 version = "1.4"
